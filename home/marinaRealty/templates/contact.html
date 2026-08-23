@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+
+{% block title %} Contact Page {% endblock title %}
+
+
+{% block content %}
+
+
+    <!-- ============ PAGE INTRO BANNER ============ -->
+    <section class="relative flex h-[40vh] min-h-[320px] w-full items-center justify-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=80" alt="City skyline near Meridian Properties office" class="absolute inset-0 h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-ink/60"></div>
+      <div class="relative z-10 px-6 text-center">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Get In Touch</p>
+        <h1 class="mt-4 max-w-2xl font-display text-4xl leading-tight text-paper sm:text-5xl">
+          Let's talk about your next move
+        </h1>
+        <p class="mx-auto mt-6 max-w-xl text-base text-paper/80 sm:text-lg">
+          Book an appointment, ask a question, or just say hello — we usually reply within
+          one business day.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT INFO CARDS ============ -->
+    <section class="mx-auto max-w-6xl px-6 py-16">
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+        <div class="border border-line p-6 text-center transition-colors hover:border-brass">
+          <span class="mx-auto flex h-11 w-11 items-center justify-center border border-brass text-brass">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.78.6 2.63a2 2 0 0 1-.45 2.11L8.09 9.63a16 16 0 0 0 6 6l1.17-1.17a2 2 0 0 1 2.11-.45c.85.28 1.73.48 2.63.6A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <h3 class="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-slate">Call Us</h3>
+          <a href="tel:+15551234567" class="mt-1 block font-display text-lg text-ink">(555) 123-4567</a>
+        </div>
+
+        <div class="border border-line p-6 text-center transition-colors hover:border-brass">
+          <span class="mx-auto flex h-11 w-11 items-center justify-center border border-brass text-brass">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
+          </span>
+          <h3 class="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-slate">Email Us</h3>
+          <a href="mailto:hello@meridianproperties.com" class="mt-1 block break-words font-display text-lg text-ink">hello@meridianproperties.com</a>
+        </div>
+
+        <div class="border border-line p-6 text-center transition-colors hover:border-brass">
+          <span class="mx-auto flex h-11 w-11 items-center justify-center border border-brass text-brass">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <h3 class="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-slate">Visit Us</h3>
+          <p class="mt-1 font-display text-lg text-ink">400 Harbor Ave, Suite 12</p>
+        </div>
+
+        <div class="border border-line p-6 text-center transition-colors hover:border-brass">
+          <span class="mx-auto flex h-11 w-11 items-center justify-center border border-brass text-brass">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </span>
+          <h3 class="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-slate">Office Hours</h3>
+          <p class="mt-1 font-display text-lg text-ink">Mon–Sat, 9am–6pm</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ APPOINTMENT FORM + MAP ============ -->
+    <section class="mx-auto max-w-6xl px-6 py-16">
+      <div class="grid gap-12 lg:grid-cols-2">
+
+        <!-- Booking form -->
+        <div>
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Book An Appointment</p>
+          <h2 class="mt-4 font-display text-3xl leading-snug text-ink">
+            Tell us what you're looking for
+          </h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            Fill in a few details and we'll confirm a time that works for you — in person
+            at our office or over a call.
+          </p>
+
+          <form id="appointment-form" class="mt-8 space-y-6" novalidate>
+
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label for="name" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Jane Doe"
+                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass" />
+              </div>
+              <div>
+                <label for="phone" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Phone</label>
+                <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000"
+                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass" />
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Email</label>
+              <input type="email" id="email" name="email" required placeholder="jane@example.com"
+                class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass" />
+            </div>
+
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label for="service" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Interested In</label>
+                <select id="service" name="service" required
+                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass">
+                  <option value="" disabled selected>Select one</option>
+                  <option value="buying">Buying</option>
+                  <option value="selling">Selling</option>
+                  <option value="renting">Renting</option>
+                  <option value="other">Something else</option>
+                </select>
+              </div>
+              <div>
+                <label for="agent" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Preferred Agent</label>
+                <select id="agent" name="agent"
+                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass">
+                  <option value="">No preference</option>
+                  <option value="daniel">Daniel Reyes</option>
+                  <option value="priya">Priya Nair</option>
+                  <option value="maya">Maya Chen</option>
+                  <option value="arjun">Arjun Mehta</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div>
+                <label for="date" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Preferred Date</label>
+                <input type="date" id="date" name="date" required
+                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass" />
+              </div>
+              <div>
+                <label for="time" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Preferred Time</label>
+                <input type="time" id="time" name="time" required
+                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass" />
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Message (optional)</label>
+              <textarea id="message" name="message" rows="4" placeholder="Anything we should know before we meet?"
+                class="w-full resize-none border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass"></textarea>
+            </div>
+
+            <button type="submit"
+              class="w-full border border-ink bg-ink px-8 py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-brass hover:border-brass sm:w-auto">
+              Book Appointment
+            </button>
+
+            <p id="form-success" class="hidden border border-brass bg-brass/10 px-4 py-3 text-sm text-ink">
+              Thanks — your request has been received. We'll confirm your appointment by
+              email shortly.
+            </p>
+          </form>
+        </div>
+
+        <!-- Map + address -->
+        <div>
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Our Office</p>
+          <h2 class="mt-4 font-display text-3xl leading-snug text-ink">Find us on the map</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            400 Harbor Ave, Suite 12, Mumbai. Street parking is available, and we're a
+            five-minute walk from the Harbor Ave transit stop.
+          </p>
+
+          <div class="mt-6 aspect-[4/3] w-full border border-line">
+            <iframe
+              title="Meridian Properties office location"
+              src="https://maps.google.com/maps?q=400%20Harbor%20Ave%2C%20Mumbai&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              class="h-full w-full grayscale-[20%]"
+              style="border:0;"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <div class="mt-6 grid grid-cols-2 gap-6 border-t border-line pt-6 font-mono text-xs uppercase tracking-[0.1em] text-slate">
+            <div>
+              <p class="text-ink">Mon – Fri</p>
+              <p class="mt-1">9:00am – 6:00pm</p>
+            </div>
+            <div>
+              <p class="text-ink">Saturday</p>
+              <p class="mt-1">10:00am – 4:00pm</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="border-t border-line bg-paper">
+      <div class="mx-auto max-w-3xl px-6 py-24">
+        <div class="mb-12 text-center">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Before You Reach Out</p>
+          <h2 class="mt-4 font-display text-3xl text-ink sm:text-4xl">Frequently asked questions</h2>
+        </div>
+
+        <div class="divide-y divide-line border-y border-line">
+
+          <div class="faq-item">
+            <button type="button" class="faq-question flex w-full items-center justify-between py-5 text-left font-display text-lg text-ink">
+              <span>Do I need an appointment to visit the office?</span>
+              <span class="faq-icon font-mono text-brass transition-transform">+</span>
+            </button>
+            <div class="faq-answer hidden pb-5 text-sm leading-relaxed text-slate">
+              Walk-ins are welcome during office hours, but booking ahead means we can have
+              an agent ready with listings that match what you're looking for.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question flex w-full items-center justify-between py-5 text-left font-display text-lg text-ink">
+              <span>Is there a fee for a first consultation?</span>
+              <span class="faq-icon font-mono text-brass transition-transform">+</span>
+            </button>
+            <div class="faq-answer hidden pb-5 text-sm leading-relaxed text-slate">
+              No. Your first meeting, whether you're buying, selling, or renting, is free
+              and comes with no obligation to work with us afterward.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question flex w-full items-center justify-between py-5 text-left font-display text-lg text-ink">
+              <span>How quickly will someone get back to me?</span>
+              <span class="faq-icon font-mono text-brass transition-transform">+</span>
+            </button>
+            <div class="faq-answer hidden pb-5 text-sm leading-relaxed text-slate">
+              We aim to respond to every form submission and call within one business day,
+              often sooner during the week.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-question flex w-full items-center justify-between py-5 text-left font-display text-lg text-ink">
+              <span>Can I request a specific agent?</span>
+              <span class="faq-icon font-mono text-brass transition-transform">+</span>
+            </button>
+            <div class="faq-answer hidden pb-5 text-sm leading-relaxed text-slate">
+              Yes — use the "Preferred Agent" field in the form above and we'll route your
+              request directly to them.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    
+{% endblock content %}

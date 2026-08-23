@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+    <!-- ============ PAGE INTRO BANNER ============ -->
+    <section class="relative flex h-[45vh] min-h-[360px] w-full items-center justify-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=80" alt="Meridian Properties office" class="absolute inset-0 h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-ink/60"></div>
+      <div class="relative z-10 px-6 text-center">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">About Us</p>
+        <h1 class="mt-4 max-w-2xl font-display text-4xl leading-tight text-paper sm:text-5xl">
+          The people behind your next move
+        </h1>
+        <p class="mx-auto mt-6 max-w-xl text-base text-paper/80 sm:text-lg">
+          We're a local team of agents, negotiators, and property managers who believe
+          real estate should feel personal, not transactional.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ OUR STORY ============ -->
+    <section class="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2">
+      <div>
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80" alt="Meridian Properties team at work" class="h-full w-full border border-line object-cover" />
+      </div>
+      <div>
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Our Story</p>
+        <h2 class="mt-4 font-display text-3xl leading-snug text-ink sm:text-4xl">
+          Built on trust, one closing at a time.
+        </h2>
+        <p class="mt-6 leading-relaxed text-slate">
+          Meridian Properties opened its doors in 2011 with two agents and a rented desk
+          above a coffee shop. We had no big-brand backing — just a belief that clients
+          deserve a straight answer, even when it's not the one they want to hear.
+        </p>
+        <p class="mt-4 leading-relaxed text-slate">
+          That approach is still how we operate today. Every listing is reviewed in person,
+          every offer is explained line by line, and every client — first-time renter or
+          repeat investor — gets the same level of attention.
+        </p>
+        <p class="mt-4 leading-relaxed text-slate">
+          Fifteen years on, we've helped families, landlords, and first-time buyers move
+          through more than 500 transactions across the city, and we're just getting started.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ OUR VALUES ============ -->
+    <section class="border-y border-line bg-paper">
+      <div class="mx-auto max-w-6xl px-6 py-24">
+        <div class="mb-16 text-center">
+          <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">What Guides Us</p>
+          <h2 class="mt-4 font-display text-3xl text-ink sm:text-4xl">Our values</h2>
+        </div>
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+          <div class="border border-line p-8 transition-colors hover:border-brass">
+            <span class="flex h-12 w-12 items-center justify-center border border-brass text-brass">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            </span>
+            <h3 class="mt-6 font-display text-lg text-ink">Integrity</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate">
+              We tell clients what they need to hear, not just what's easy to say.
+            </p>
+          </div>
+
+          <div class="border border-line p-8 transition-colors hover:border-brass">
+            <span class="flex h-12 w-12 items-center justify-center border border-brass text-brass">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <h3 class="mt-6 font-display text-lg text-ink">Local Expertise</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate">
+              We know the streets, schools, and market shifts block by block.
+            </p>
+          </div>
+
+          <div class="border border-line p-8 transition-colors hover:border-brass">
+            <span class="flex h-12 w-12 items-center justify-center border border-brass text-brass">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <h3 class="mt-6 font-display text-lg text-ink">Client First</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate">
+              Your timeline and budget shape our advice, never the other way around.
+            </p>
+          </div>
+
+          <div class="border border-line p-8 transition-colors hover:border-brass">
+            <span class="flex h-12 w-12 items-center justify-center border border-brass text-brass">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20"/><path d="M12 2a15 15 0 0 0 0 20"/><circle cx="12" cy="12" r="10"/></svg>
+            </span>
+            <h3 class="mt-6 font-display text-lg text-ink">Transparency</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate">
+              Clear fees, clear paperwork, no surprises at the closing table.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MEET THE TEAM ============ -->
+    <section class="mx-auto max-w-6xl px-6 py-24">
+      <div class="mb-16 text-center">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Meet The Team</p>
+        <h2 class="mt-4 font-display text-3xl text-ink sm:text-4xl">The people you'll work with</h2>
+      </div>
+
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+        <div class="group text-center">
+          <div class="overflow-hidden border border-line">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80" alt="Portrait of Daniel Reyes" class="aspect-[3/4] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <h3 class="mt-5 font-display text-lg text-ink">Daniel Reyes</h3>
+          <p class="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-brass">Founder &amp; Principal Broker</p>
+        </div>
+
+        <div class="group text-center">
+          <div class="overflow-hidden border border-line">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Portrait of Priya Nair" class="aspect-[3/4] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <h3 class="mt-5 font-display text-lg text-ink">Priya Nair</h3>
+          <p class="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-brass">Senior Agent, Buying</p>
+        </div>
+
+        <div class="group text-center">
+          <div class="overflow-hidden border border-line">
+            <img src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=600&q=80" alt="Portrait of Maya Chen" class="aspect-[3/4] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <h3 class="mt-5 font-display text-lg text-ink">Maya Chen</h3>
+          <p class="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-brass">Senior Agent, Selling</p>
+        </div>
+
+        <div class="group text-center">
+          <div class="overflow-hidden border border-line">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80" alt="Portrait of Arjun Mehta" class="aspect-[3/4] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+          </div>
+          <h3 class="mt-5 font-display text-lg text-ink">Arjun Mehta</h3>
+          <p class="mt-1 font-mono text-xs uppercase tracking-[0.15em] text-brass">Property Manager, Renting</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ STATS BAND ============ -->
+    <section class="border-y border-line bg-ink">
+      <div class="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-16 text-center font-mono text-xs uppercase tracking-[0.15em] text-paper/60 sm:grid-cols-4">
+        <div>
+          <span class="block font-display text-4xl normal-case tracking-normal text-brass">500+</span>
+          Properties Sold
+        </div>
+        <div>
+          <span class="block font-display text-4xl normal-case tracking-normal text-brass">15</span>
+          Years Experience
+        </div>
+        <div>
+          <span class="block font-display text-4xl normal-case tracking-normal text-brass">12</span>
+          Agents On Team
+        </div>
+        <div>
+          <span class="block font-display text-4xl normal-case tracking-normal text-brass">98%</span>
+          Client Satisfaction
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="mx-auto max-w-6xl px-6 py-24">
+      <div class="mb-16 text-center">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Client Stories</p>
+        <h2 class="mt-4 font-display text-3xl text-ink sm:text-4xl">What our clients say</h2>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-3">
+
+        <div class="testimonial-card flex flex-col border border-line p-8">
+          <div class="mb-4 flex gap-1 text-brass">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+          </div>
+          <p class="flex-1 text-sm leading-relaxed text-slate">
+            "Priya walked us through every offer without any pressure. We closed on our
+            first home three weeks faster than we expected, and never felt lost in the
+            paperwork."
+          </p>
+          <div class="mt-6 flex items-center gap-3 border-t border-line pt-6">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" alt="Photo of Sarah Whitman" class="h-10 w-10 rounded-full object-cover" />
+            <div>
+              <p class="font-display text-sm text-ink">Sarah Whitman</p>
+              <p class="font-mono text-[11px] uppercase tracking-[0.1em] text-slate">First-time Buyer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card flex flex-col border border-line p-8">
+          <div class="mb-4 flex gap-1 text-brass">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+          </div>
+          <p class="flex-1 text-sm leading-relaxed text-slate">
+            "Maya priced our house right the first time. We had three offers within ten
+            days and she negotiated every one of them like it was her own sale."
+          </p>
+          <div class="mt-6 flex items-center gap-3 border-t border-line pt-6">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Photo of James Okafor" class="h-10 w-10 rounded-full object-cover" />
+            <div>
+              <p class="font-display text-sm text-ink">James Okafor</p>
+              <p class="font-mono text-[11px] uppercase tracking-[0.1em] text-slate">Home Seller</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card flex flex-col border border-line p-8">
+          <div class="mb-4 flex gap-1 text-brass">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>
+          </div>
+          <p class="flex-1 text-sm leading-relaxed text-slate">
+            "Arjun manages three of my rental units now. Tenant turnover paperwork used
+            to eat my weekends — now it barely crosses my mind."
+          </p>
+          <div class="mt-6 flex items-center gap-3 border-t border-line pt-6">
+            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=100&q=80" alt="Photo of Renata Alvarez" class="h-10 w-10 rounded-full object-cover" />
+            <div>
+              <p class="font-display text-sm text-ink">Renata Alvarez</p>
+              <p class="font-mono text-[11px] uppercase tracking-[0.1em] text-slate">Landlord, 3 Units</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ CTA BAND ============ -->
+    <section class="border-t border-line bg-ink">
+      <div class="mx-auto max-w-6xl px-6 py-20 text-center">
+        <h2 class="font-display text-3xl text-paper sm:text-4xl">Ready to make your move?</h2>
+        <p class="mx-auto mt-4 max-w-xl text-paper/70">
+          Tell us what you're looking for and a member of the team will get back to you
+          within one business day.
+        </p>
+        <a href="contact.html" class="mt-8 inline-block border border-paper px-8 py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-paper hover:text-ink">
+          Get In Touch
+        </a>
+      </div>
+    </section>
+
+    {% endblock %}

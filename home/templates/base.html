@@ -41,16 +41,16 @@
       <a href="index.html" class="group flex items-center gap-3">
         <span class="flex h-10 w-10 items-center justify-center border border-ink font-display text-lg text-ink transition-colors group-hover:bg-ink group-hover:text-paper">M</span>
         <span class="flex flex-col leading-none">
-          <span class="font-display text-xl tracking-tight text-ink">Meridian</span>
-          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-brass">Properties</span>
+          <span class="font-display text-xl tracking-tight text-ink">MARINA</span>
+          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-brass">REALTY</span>
         </span>
       </a>
 
       <nav class="hidden items-center gap-10 font-mono text-xs uppercase tracking-[0.15em] text-ink md:flex">
-        <a href="index.html" data-nav="home" class="nav-link">Home</a>
-        <a href="properties.html" data-nav="properties" class="nav-link">Properties</a>
-        <a href="about.html" data-nav="about" class="nav-link">About Us</a>
-        <a href="contact.html" data-nav="contact" class="nav-link">Contact</a>
+        <a href="{% url 'home' %}" data-nav="home" class="nav-link">Home</a>
+        <a href="{% url 'properties' %}" data-nav="properties" class="nav-link">Properties</a>
+        <a href="{% url 'about' %}" data-nav="about" class="nav-link">About Us</a>
+        <a href="{% url 'contact' %}" data-nav="contact" class="nav-link">Contact</a>
       </nav>
 
       <div class="flex items-center gap-6">
