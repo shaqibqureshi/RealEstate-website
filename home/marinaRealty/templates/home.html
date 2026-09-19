@@ -34,7 +34,7 @@
         <p class="mt-6 max-w-xl text-base text-paper/80 sm:text-lg">
           Curated listings, honest advice, and a team that treats your next move like it's our own.
         </p>
-        <a href="properties.html" class="mt-8 border border-paper px-8 py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-paper hover:text-ink">
+        <a href="{% url 'properties' %}" class="mt-8 border border-paper px-8 py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-paper hover:text-ink">
           Browse Properties
         </a>
       </div>
@@ -52,14 +52,10 @@
       <div class="order-2 md:order-1">
         <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">About Us</p>
         <h2 class="mt-4 font-display text-3xl leading-snug text-ink sm:text-4xl">
-          Real estate, handled with care since 2011.
+          Real estate, handled with care since 2018.
         </h2>
         <p class="mt-6 leading-relaxed text-slate">
-          Meridian Properties started as a two-person office with a simple idea: buying,
-          selling, or renting a home shouldn't feel like a transaction. Over a decade later,
-          we've grown into a full-service brokerage without losing that founding promise —
-          every client gets a dedicated agent, straight answers, and a process they can
-          actually follow.
+          Marina Realty was founded with a simple belief: real estate should be built on trust, transparency, and genuine relationships. What began as a one-person venture has grown through years of experience and dedication, while keeping the same personal approach at its heart. Whether you're buying, selling, or renting, we believe every client deserves honest guidance, clear answers, and a process they can trust.
         </p>
         <p class="mt-4 leading-relaxed text-slate">
           From first-time buyers to landlords managing a portfolio, we bring local market
@@ -83,7 +79,7 @@
       </div>
 
       <div class="order-1 md:order-2">
-        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80" alt="Meridian Properties team reviewing a property" class="h-full w-full border border-line object-cover" />
+        <img src="{% static 'images/1.jpg' %}" alt="Marina Realty team reviewing a property" class="h-full w-full border border-line object-cover" />
       </div>
     </section>
 
@@ -108,7 +104,7 @@
               We help you shortlist the right properties, negotiate fairly, and manage every
               document until the keys are in your hand.
             </p>
-            <a href="properties.html?type=buying" class="footer-link mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-brass">
+            <a href="{% url 'properties' %}?type=buying" class="footer-link mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-brass">
               Learn more <span>→</span>
             </a>
           </div>
@@ -122,7 +118,7 @@
               From pricing strategy to staging and marketing, we position your property to
               sell at the right value, faster.
             </p>
-            <a href="properties.html?type=selling" class="footer-link mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-brass">
+            <a href="{% url 'properties' %}?type=selling" class="footer-link mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-brass">
               Learn more <span>→</span>
             </a>
           </div>
@@ -136,7 +132,7 @@
               Whether you're listing a unit or looking for one, we match tenants and landlords
               with clear terms and less back-and-forth.
             </p>
-            <a href="properties.html?type=renting" class="footer-link mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-brass">
+            <a href="{% url 'properties' %}?type=renting" class="footer-link mt-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-brass">
               Learn more <span>→</span>
             </a>
           </div>

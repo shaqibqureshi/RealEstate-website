@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Footer year
   const yearEl = document.getElementById('copyright-year');
   if (yearEl) {
-    yearEl.textContent = `© ${new Date().getFullYear()} Meridian Properties`;
+    yearEl.textContent = `© ${new Date().getFullYear()} Marina Realty`;
   }
 
   // Hero photo slider
@@ -96,30 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
     startAutoplay();
   }
 
-  // Appointment form (contact page)
-  const appointmentForm = document.getElementById('appointment-form');
-  if (appointmentForm) {
-    const dateInput = document.getElementById('date');
-    if (dateInput) {
-      dateInput.min = new Date().toISOString().split('T')[0];
-    }
-
-    const successMsg = document.getElementById('form-success');
-
-    appointmentForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      if (!appointmentForm.checkValidity()) {
-        appointmentForm.reportValidity();
-        return;
-      }
-
-      // No backend wired up yet — swap this block out for a real fetch()
-      // call to your booking endpoint when one exists.
-      successMsg?.classList.remove('hidden');
-      appointmentForm.reset();
-      successMsg?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
+  // Appointment form (contact page). The form posts to the server (see
+  // MarinaRealty's views.contact) — here we only bump the min date on the
+  // date picker so users can't book a date in the past.
+  const dateInput = document.getElementById('id_preferred_date');
+  if (dateInput) {
+    dateInput.min = new Date().toISOString().split('T')[0];
   }
 
   // FAQ accordion (contact page)

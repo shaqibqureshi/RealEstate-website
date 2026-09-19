@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Footer year
   const yearEl = document.getElementById('copyright-year');
   if (yearEl) {
-    yearEl.textContent = `© ${new Date().getFullYear()} Meridian Properties`;
+    yearEl.textContent = `© ${new Date().getFullYear()} Marina Realty`;
   }
 
   // Hero photo slider

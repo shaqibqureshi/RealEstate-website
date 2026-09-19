@@ -8,7 +8,7 @@
 
     <!-- ============ PAGE INTRO BANNER ============ -->
     <section class="relative flex h-[45vh] min-h-[360px] w-full items-center justify-center overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=80" alt="Meridian Properties office" class="absolute inset-0 h-full w-full object-cover" />
+      <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=80" alt="Marina Realty office" class="absolute inset-0 h-full w-full object-cover" />
       <div class="absolute inset-0 bg-ink/60"></div>
       <div class="relative z-10 px-6 text-center">
         <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">About Us</p>
@@ -25,7 +25,7 @@
     <!-- ============ OUR STORY ============ -->
     <section class="mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2">
       <div>
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=1200&q=80" alt="Meridian Properties team at work" class="h-full w-full border border-line object-cover" />
+        <img src="{% static 'images/2.png' %}" alt="Marina Realty team at work" class="h-full w-full border border-line object-cover" />
       </div>
       <div>
         <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Our Story</p>
@@ -33,7 +33,7 @@
           Built on trust, one closing at a time.
         </h2>
         <p class="mt-6 leading-relaxed text-slate">
-          Meridian Properties opened its doors in 2011 with two agents and a rented desk
+          Marina Realty opened its doors in 2011 with two agents and a rented desk
           above a coffee shop. We had no big-brand backing — just a belief that clients
           deserve a straight answer, even when it's not the one they want to hear.
         </p>
@@ -253,7 +253,7 @@
           Tell us what you're looking for and a member of the team will get back to you
           within one business day.
         </p>
-        <a href="contact.html" class="mt-8 inline-block border border-paper px-8 py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-paper hover:text-ink">
+        <a href="{% url 'contact' %}" class="mt-8 inline-block border border-paper px-8 py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-paper hover:text-ink">
           Get In Touch
         </a>
       </div>

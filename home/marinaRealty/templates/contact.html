@@ -8,7 +8,7 @@
 
     <!-- ============ PAGE INTRO BANNER ============ -->
     <section class="relative flex h-[40vh] min-h-[320px] w-full items-center justify-center overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=80" alt="City skyline near Meridian Properties office" class="absolute inset-0 h-full w-full object-cover" />
+      <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1800&q=80" alt="City skyline near Marina Realty office" class="absolute inset-0 h-full w-full object-cover" />
       <div class="absolute inset-0 bg-ink/60"></div>
       <div class="relative z-10 px-6 text-center">
         <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Get In Touch</p>
@@ -31,7 +31,7 @@
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.78.6 2.63a2 2 0 0 1-.45 2.11L8.09 9.63a16 16 0 0 0 6 6l1.17-1.17a2 2 0 0 1 2.11-.45c.85.28 1.73.48 2.63.6A2 2 0 0 1 22 16.92z"/></svg>
           </span>
           <h3 class="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-slate">Call Us</h3>
-          <a href="tel:+15551234567" class="mt-1 block font-display text-lg text-ink">(555) 123-4567</a>
+          <a href="tel:+917302178678" class="mt-1 block font-display text-lg text-ink">+91 73021 78678</a>
         </div>
 
         <div class="border border-line p-6 text-center transition-colors hover:border-brass">
@@ -39,7 +39,7 @@
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
           </span>
           <h3 class="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-slate">Email Us</h3>
-          <a href="mailto:hello@meridianproperties.com" class="mt-1 block break-words font-display text-lg text-ink">hello@meridianproperties.com</a>
+          <a href="mailto:shamrozqureshiabc@gmail.com" class="mt-1 block break-words font-display text-lg text-ink">shamrozqureshiabc@gmail.com</a>
         </div>
 
         <div class="border border-line p-6 text-center transition-colors hover:border-brass">
@@ -47,7 +47,8 @@
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </span>
           <h3 class="mt-4 font-mono text-xs uppercase tracking-[0.15em] text-slate">Visit Us</h3>
-          <p class="mt-1 font-display text-lg text-ink">400 Harbor Ave, Suite 12</p>
+          <a href="https://www.google.com/maps/dir//Marina+realty,+HUMERA+PARK,+Vaishet+Pada,+Pathan+Wadi,+Malad+East,+Mumbai,+Maharashtra+400097/@19.1823872,72.8629248,14z" target="_blank" rel="noopener noreferrer" class="mt-1 block font-display text-lg text-ink transition-colors hover:text-brass">Opposite Humera Park, First Floor,</a>
+          <a href="https://www.google.com/maps/dir//Marina+realty,+HUMERA+PARK,+Vaishet+Pada,+Pathan+Wadi,+Malad+East,+Mumbai,+Maharashtra+400097/@19.1823872,72.8629248,14z" target="_blank" rel="noopener noreferrer" class="mt-1 block font-display text-lg text-ink transition-colors hover:text-brass">Pathanwadi, Malad East</a>
         </div>
 
         <div class="border border-line p-6 text-center transition-colors hover:border-brass">
@@ -76,80 +77,77 @@
             at our office or over a call.
           </p>
 
-          <form id="appointment-form" class="mt-8 space-y-6" novalidate>
+          {% if messages %}
+            <div class="mt-8 border border-brass bg-brass/10 px-4 py-3 text-sm text-ink">
+              {% for message in messages %}{{ message }}{% endfor %}
+            </div>
+          {% endif %}
+
+          {% if form.errors %}
+            <div class="mt-8 border border-red-600/40 bg-red-600/10 px-4 py-3 text-sm text-red-700">
+              Please fix the highlighted fields below and try again.
+            </div>
+          {% endif %}
+
+          <form id="appointment-form" method="post" class="mt-8 space-y-6">
+            {% csrf_token %}
+            {{ form.website }}
 
             <div class="grid gap-6 sm:grid-cols-2">
               <div>
-                <label for="name" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Full Name</label>
-                <input type="text" id="name" name="name" required placeholder="Jane Doe"
-                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass" />
+                <label for="{{ form.name.id_for_label }}" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Full Name</label>
+                {{ form.name }}
+                {% for error in form.name.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
               </div>
               <div>
-                <label for="phone" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Phone</label>
-                <input type="tel" id="phone" name="phone" required placeholder="(555) 000-0000"
-                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass" />
+                <label for="{{ form.phone.id_for_label }}" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Phone</label>
+                {{ form.phone }}
+                {% for error in form.phone.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
               </div>
             </div>
 
             <div>
-              <label for="email" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Email</label>
-              <input type="email" id="email" name="email" required placeholder="jane@example.com"
-                class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass" />
+              <label for="{{ form.email.id_for_label }}" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Email</label>
+              {{ form.email }}
+              {% for error in form.email.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
             </div>
 
             <div class="grid gap-6 sm:grid-cols-2">
               <div>
-                <label for="service" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Interested In</label>
-                <select id="service" name="service" required
-                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass">
-                  <option value="" disabled selected>Select one</option>
-                  <option value="buying">Buying</option>
-                  <option value="selling">Selling</option>
-                  <option value="renting">Renting</option>
-                  <option value="other">Something else</option>
-                </select>
+                <label for="{{ form.service.id_for_label }}" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Interested In</label>
+                {{ form.service }}
+                {% for error in form.service.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
               </div>
               <div>
-                <label for="agent" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Preferred Agent</label>
-                <select id="agent" name="agent"
-                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass">
-                  <option value="">No preference</option>
-                  <option value="daniel">Daniel Reyes</option>
-                  <option value="priya">Priya Nair</option>
-                  <option value="maya">Maya Chen</option>
-                  <option value="arjun">Arjun Mehta</option>
-                </select>
+                <label for="{{ form.agent.id_for_label }}" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Preferred Agent</label>
+                {{ form.agent }}
+                {% for error in form.agent.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
               </div>
             </div>
 
             <div class="grid gap-6 sm:grid-cols-2">
               <div>
-                <label for="date" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Preferred Date</label>
-                <input type="date" id="date" name="date" required
-                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass" />
+                <label for="{{ form.preferred_date.id_for_label }}" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Preferred Date</label>
+                {{ form.preferred_date }}
+                {% for error in form.preferred_date.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
               </div>
               <div>
-                <label for="time" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Preferred Time</label>
-                <input type="time" id="time" name="time" required
-                  class="w-full border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass" />
+                <label for="{{ form.preferred_time.id_for_label }}" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Preferred Time</label>
+                {{ form.preferred_time }}
+                {% for error in form.preferred_time.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
               </div>
             </div>
 
             <div>
-              <label for="message" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Message (optional)</label>
-              <textarea id="message" name="message" rows="4" placeholder="Anything we should know before we meet?"
-                class="w-full resize-none border border-line bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-brass"></textarea>
+              <label for="{{ form.message.id_for_label }}" class="mb-2 block font-mono text-xs uppercase tracking-[0.15em] text-slate">Message (optional)</label>
+              {{ form.message }}
+              {% for error in form.message.errors %}<p class="mt-1 text-xs text-red-600">{{ error }}</p>{% endfor %}
             </div>
 
             <button type="submit"
               class="w-full border border-ink bg-ink px-8 py-3 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-brass hover:border-brass sm:w-auto">
               Book Appointment
             </button>
-
-            <p id="form-success" class="hidden border border-brass bg-brass/10 px-4 py-3 text-sm text-ink">
-              Thanks — your request has been received. We'll confirm your appointment by
-              email shortly.
-            </p>
           </form>
         </div>
 
@@ -158,19 +156,20 @@
           <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Our Office</p>
           <h2 class="mt-4 font-display text-3xl leading-snug text-ink">Find us on the map</h2>
           <p class="mt-4 text-sm leading-relaxed text-slate">
-            400 Harbor Ave, Suite 12, Mumbai. Street parking is available, and we're a
-            five-minute walk from the Harbor Ave transit stop.
+            <a href="https://www.google.com/maps/dir//Marina+realty,+HUMERA+PARK,+Vaishet+Pada,+Pathan+Wadi,+Malad+East,+Mumbai,+Maharashtra+400097/@19.1823872,72.8629248,14z" target="_blank" rel="noopener noreferrer" class="text-ink underline decoration-brass underline-offset-4 transition-colors hover:text-brass">
+              Opposite Humera Park, First Floor, Pathanwadi, Malad East, Mumbai - 400097
+            </a>
           </p>
 
           <div class="mt-6 aspect-[4/3] w-full border border-line">
             <iframe
-              title="Meridian Properties office location"
-              src="https://maps.google.com/maps?q=400%20Harbor%20Ave%2C%20Mumbai&t=&z=14&ie=UTF8&iwloc=&output=embed"
-              class="h-full w-full grayscale-[20%]"
-              style="border:0;"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+    src="https://www.google.com/maps?q=19.1823872,72.8629248&z=14&output=embed"
+    width="100%"
+    height="400"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy">
+</iframe>
           </div>
 
           <div class="mt-6 grid grid-cols-2 gap-6 border-t border-line pt-6 font-mono text-xs uppercase tracking-[0.1em] text-slate">

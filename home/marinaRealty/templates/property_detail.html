@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ property.title }}{% endblock title %}
+
+{% block content %}
+
+    {# Expects context: { 'property': <Property instance> } from views.property_detail #}
+
+    <!-- ============ BREADCRUMB ============ -->
+    <section class="border-b border-line bg-paper">
+      <div class="mx-auto max-w-6xl px-6 py-5">
+        <a href="{% url 'properties' %}" class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-slate transition-colors hover:text-brass">
+          <span>←</span> Back to Properties
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ HERO IMAGE ============ -->
+    <section class="relative h-[55vh] min-h-[380px] w-full overflow-hidden bg-line">
+      {% if property.image %}
+        <img id="main-property-image" src="{{ property.image.url }}" alt="{{ property.title }}" class="h-full w-full object-cover" />
+      {% else %}
+        <div id="main-property-image" class="flex h-full w-full items-center justify-center text-slate">
+          <svg class="h-16 w-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 21V11h8v10"/><path d="M3 7l9-5 9 5"/></svg>
+        </div>
+      {% endif %}
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
+
+      <div class="absolute left-6 top-6 flex gap-2 sm:left-10 sm:top-10">
+        <span class="border border-brass bg-ink/85 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-brass">
+          {{ property.status|default:"For Sale" }}
+        </span>
+        <span class="border border-paper/40 bg-ink/85 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-paper">
+          {{ property.get_listing_type_display }}
+        </span>
+      </div>
+
+      <div class="absolute bottom-6 left-6 right-6 sm:bottom-10 sm:left-10 sm:right-10">
+        <p class="font-display text-3xl text-paper sm:text-4xl">{{ property.title }}</p>
+        <p class="mt-2 flex items-center gap-1.5 text-sm text-paper/80">
+          <svg class="h-4 w-4 shrink-0 text-brass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {{ property.location }}
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ THUMBNAIL GALLERY ============ -->
+    <section class="border-b border-line bg-paper">
+      <div class="mx-auto max-w-6xl px-6 py-6">
+        <div class="flex gap-3 overflow-x-auto">
+          {% if property.image %}
+          <button type="button" class="thumb-btn active h-20 w-28 shrink-0 overflow-hidden border-2 border-brass" data-full="{{ property.image.url }}">
+            <img src="{{ property.image.url }}" alt="Cover photo" class="h-full w-full object-cover" />
+          </button>
+          {% endif %}
+          {% for img in property.images.all %}
+          <button type="button" class="thumb-btn h-20 w-28 shrink-0 overflow-hidden border-2 border-transparent" data-full="{{ img.image.url }}">
+            <img src="{{ img.image.url }}" alt="{{ img.caption|default:property.title }}" class="h-full w-full object-cover" />
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DETAILS + CONTACT SIDEBAR ============ -->
+    <section class="mx-auto max-w-6xl px-6 py-16">
+      <div class="grid gap-12 lg:grid-cols-3">
+
+        <!-- Left: details -->
+        <div class="lg:col-span-2">
+
+          <div class="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-6">
+            <p class="font-display text-3xl text-ink sm:text-4xl">
+              ${{ property.price|floatformat:0 }}{% if property.listing_type == 'renting' %}<span class="font-mono text-sm normal-case tracking-normal text-slate"> /mo</span>{% endif %}
+            </p>
+          </div>
+
+          <div class="mt-8 grid grid-cols-3 gap-6 border-b border-line pb-8 font-mono text-xs uppercase tracking-[0.1em] text-slate">
+            <div class="flex flex-col items-center gap-2 border border-line py-5">
+              <svg class="h-5 w-5 text-brass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v11M3 11h18M21 7v11M7 11V9a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/></svg>
+              {{ property.bedrooms }} Bedrooms
+            </div>
+            <div class="flex flex-col items-center gap-2 border border-line py-5">
+              <svg class="h-5 w-5 text-brass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M6 12V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2M4 12v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/></svg>
+              {{ property.bathrooms }} Bathrooms
+            </div>
+            <div class="flex flex-col items-center gap-2 border border-line py-5">
+              <svg class="h-5 w-5 text-brass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
+              {{ property.area_sqft }} Sqft
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Description</p>
+            <h2 class="mt-4 font-display text-2xl text-ink">About this property</h2>
+            <p class="mt-4 whitespace-pre-line leading-relaxed text-slate">
+              {{ property.description|default:"No description has been added for this listing yet." }}
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right: contact / booking sidebar -->
+        <aside class="lg:col-span-1">
+          <div class="sticky top-28 border border-line p-8">
+            <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Interested?</p>
+            <h3 class="mt-3 font-display text-xl text-ink">Book a viewing</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate">
+              Speak with our team about {{ property.title }} — we'll confirm a time that
+              works for you.
+            </p>
+
+            <a href="{% url 'contact' %}?property={{ property.pk }}"
+               class="mt-6 block w-full border border-ink bg-ink px-6 py-3 text-center font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:bg-brass hover:border-brass">
+              Book Appointment
+            </a>
+
+            <div class="mt-6 space-y-3 border-t border-line pt-6 font-mono text-xs uppercase tracking-[0.1em] text-slate">
+              <a href="tel:+917302178678" class="flex items-center gap-2 transition-colors hover:text-brass">
+                <svg class="h-4 w-4 shrink-0 text-brass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.78.6 2.63a2 2 0 0 1-.45 2.11L8.09 9.63a16 16 0 0 0 6 6l1.17-1.17a2 2 0 0 1 2.11-.45c.85.28 1.73.48 2.63.6A2 2 0 0 1 22 16.92z"/></svg>
+                +91 73021 78678
+              </a>
+              <a href="mailto:shamrozqureshiabc@gmail.com" class="flex items-center gap-2 break-all transition-colors hover:text-brass">
+                <svg class="h-4 w-4 shrink-0 text-brass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg>
+                shamrozqureshiabc@gmail.com
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ============ RELATED PROPERTIES (optional) ============ -->
+    {% if related_properties %}
+    <section class="border-t border-line bg-paper">
+      <div class="mx-auto max-w-6xl px-6 py-16">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">You Might Also Like</p>
+        <h2 class="mt-4 font-display text-2xl text-ink sm:text-3xl">Similar properties</h2>
+
+        <div class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {% for item in related_properties %}
+          <a href="{% url 'property_detail' item.pk %}" class="property-card group flex flex-col border border-line transition-colors hover:border-brass">
+            <div class="relative aspect-[4/3] w-full overflow-hidden bg-line">
+              {% if item.image %}
+                <img src="{{ item.image.url }}" alt="{{ item.title }}" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              {% endif %}
+              <span class="absolute left-3 top-3 border border-brass bg-ink/85 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.15em] text-brass">
+                {{ item.status|default:"For Sale" }}
+              </span>
+            </div>
+            <div class="flex flex-1 flex-col p-6">
+              <p class="font-display text-xl text-ink">${{ item.price|floatformat:0 }}</p>
+              <h3 class="mt-2 font-display text-base leading-snug text-ink">{{ item.title }}</h3>
+              <p class="mt-1 text-sm text-slate">{{ item.location }}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {% endif %}
+
+{% endblock %}
