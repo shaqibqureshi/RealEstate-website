@@ -1,0 +1,165 @@
+{% load static %}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marina Realty</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            ink: '#14212E',
+            paper: '#F6F4EF',
+            brass: '#B08D46',
+            slate: '#5B6672',
+            line: '#E3DFD5',
+          },
+          fontFamily: {
+            display: ['Fraunces', 'serif'],
+            sans: ['"Work Sans"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var useDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', useDark);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+</head>
+<body data-page="home" class="flex min-h-screen flex-col bg-paper font-sans text-ink">
+
+  <!-- ================= HEADER ================= -->
+  <header class="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
+    <div class="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
+
+      <a href="{% url 'home' %}" class="group flex items-center gap-3">
+        <span class="flex h-10 w-10 items-center justify-center border border-ink font-display text-lg text-ink transition-colors group-hover:bg-ink group-hover:text-paper">M</span>
+        <span class="flex flex-col leading-none">
+          <span class="font-display text-xl tracking-tight text-ink">MARINA</span>
+          <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-brass">REALTY</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-10 font-mono text-xs uppercase tracking-[0.15em] text-ink md:flex">
+        <a href="{% url 'home' %}" data-nav="home" class="nav-link">Home</a>
+        <a href="{% url 'properties' %}" data-nav="properties" class="nav-link">Properties</a>
+        <a href="{% url 'about' %}" data-nav="about" class="nav-link">About Us</a>
+        <a href="{% url 'contact' %}" data-nav="contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-6">
+        <a href="tel:+917302178678" class="hidden items-center gap-2 border border-ink px-4 py-2 font-mono text-xs uppercase tracking-[0.15em] text-ink transition-colors hover:bg-ink hover:text-paper md:flex">
+          +91 73021 78678
+        </a>
+        <button id="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" class="flex h-9 w-9 items-center justify-center border border-ink text-ink transition-colors hover:bg-ink hover:text-paper">
+          <svg id="icon-moon" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg id="icon-sun" class="hidden h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button id="menu-toggle" aria-label="Toggle menu" aria-expanded="false" class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden">
+          <span class="h-px w-6 bg-ink transition-transform dark:bg-[#EEE9DE]" id="bar-1"></span>
+          <span class="h-px w-6 bg-ink transition-opacity dark:bg-[#EEE9DE]" id="bar-2"></span>
+          <span class="h-px w-6 bg-ink transition-transform dark:bg-[#EEE9DE]" id="bar-3"></span>
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobile-menu" class="hidden flex-col border-t border-line bg-paper font-mono text-sm uppercase tracking-[0.15em] text-ink md:hidden">
+      <a href="{% url 'home' %}" data-nav="home" class="nav-link-mobile border-b border-line px-6 py-4">Home</a>
+      <a href="{% url 'properties' %}" data-nav="properties" class="nav-link-mobile border-b border-line px-6 py-4">Properties</a>
+      <a href="{% url 'about' %}" data-nav="about" class="nav-link-mobile border-b border-line px-6 py-4">About Us</a>
+      <a href="{% url 'contact' %}" data-nav="contact" class="nav-link-mobile border-b border-line px-6 py-4">Contact</a>
+      <a href="tel:+917302178678" class="px-6 py-4 text-brass">+91 73021 78678</a>
+    </nav>
+  </header>
+
+  <!-- ================= PAGE CONTENT ================= -->
+  <main>
+     {% block content %}
+     
+        {% endblock content %}
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-line bg-ink text-paper">
+    <div class="mx-auto max-w-6xl px-6 py-16">
+      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
+
+        <div>
+          <div class="mb-4 flex items-center gap-2">
+            <span class="flex h-8 w-8 items-center justify-center border border-brass font-display text-sm text-brass">M</span>
+            <span class="font-display text-lg tracking-tight">Marina Realty</span>
+          </div>
+          <p class="max-w-[26ch] text-sm leading-relaxed text-paper/60">
+            Helping buyers, sellers, and renters find their place across the city since 2011.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="space-y-3 text-sm text-paper/70">
+            <li><a href="{% url 'home' %}" class="footer-link">Home</a></li>
+            <li><a href="{% url 'properties' %}" class="footer-link">Properties</a></li>
+            <li><a href="{% url 'about' %}" class="footer-link">About Us</a></li>
+            <li><a href="{% url 'contact' %}" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Services</h3>
+          <ul class="space-y-3 text-sm text-paper/70">
+            <li><a href="{% url 'properties' %}?type=buying" class="footer-link">Buying</a></li>
+            <li><a href="{% url 'properties' %}?type=selling" class="footer-link">Selling</a></li>
+            <li><a href="{% url 'properties' %}?type=renting" class="footer-link">Renting</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Contact</h3>
+          <ul class="space-y-3 text-sm text-paper/70">
+            <li><a href="tel:+917302178678" class="footer-link font-mono">+91 73021 78678</a></li>
+            <li><a href="mailto:shamrozqureshiabc@gmail.com" class="footer-link font-mono">shamrozqureshiabc@gmail.com</a></li>
+            <li><a href="https://www.google.com/maps/dir//Marina+realty,+HUMERA+PARK,+Vaishet+Pada,+Pathan+Wadi,+Malad+East,+Mumbai,+Maharashtra+400097/@19.1823872,72.8629248,14z" target="_blank" rel="noopener noreferrer" class="text-paper/70 transition-colors hover:text-brass">Opposite Humera Park, First Floor, Pathanwadi, Malad East, Mumbai - 400097</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-paper/10">
+      <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-6 text-xs text-paper/50 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+          <span id="copyright-year" class="font-mono">© 2026 Marina Realty</span>
+          <span class="text-paper/20">|</span>
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+          <span class="text-paper/20">|</span>
+          <a href="terms.html" class="footer-link">Terms</a>
+        </div>
+        <div class="flex items-center gap-x-3">
+          <a href="https://www.instagram.com/marinarealtymumbai" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a>
+          <span class="text-paper/20">|</span>
+          <a href="https://www.facebook.com/shamroz12345" target="_blank" rel="noopener noreferrer" class="footer-link">Facebook</a>
+          <span class="text-paper/20">|</span>
+          <a href="https://wa.me/917302178678" target="_blank" rel="noopener noreferrer" class="footer-link">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/base.js' %}"></script>
+</body>
+</html>

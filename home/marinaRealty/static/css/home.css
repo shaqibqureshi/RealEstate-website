@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* Desktop nav links — brass underline grows on hover/active */
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1.5px;
+  width: 0;
+  background-color: #B08D46;
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link.nav-active::after {
+  width: 100%;
+}
+.nav-link.nav-active {
+  color: #B08D46;
+}
+
+/* Mobile nav links */
+.nav-link-mobile:hover,
+.nav-link-mobile.nav-active {
+  color: #B08D46;
+}
+
+/* Footer column headings */
+.footer-heading {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #B08D46;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(176, 141, 70, 0.35);
+  width: fit-content;
+}
+
+.footer-link:hover {
+  color: #B08D46;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #B08D46;
+  outline-offset: 3px;
+}
+
+/* Hero slider dots */
+.slider-dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 9999px;
+  background-color: rgba(246, 244, 239, 0.4);
+  cursor: pointer;
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+.slider-dot.active {
+  width: 22px;
+  border-radius: 9999px;
+  background-color: #B08D46;
+}
+
+/* Service cards lift slightly on hover */
+.service-card {
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+}

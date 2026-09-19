@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+/* ===== Dark mode =====
+   The site uses a fixed palette; dark mode flips the light "paper" surfaces
+   and secondary text via these overrides. Dark ink sections (footer, bands,
+   pills, overlays) keep their navy background and light text as-is.
+   !important beats the Tailwind utilities. */
+.dark {
+  color-scheme: dark;
+}
+
+.dark .bg-paper,
+.dark .bg-paper\/95 {
+  background-color: #0F171F !important;
+}
+
+.dark .text-ink {
+  color: #EEE9DE !important;
+}
+
+.dark .border-ink {
+  border-color: #EEE9DE !important;
+}
+
+.dark .text-slate {
+  color: #99A5AF !important;
+}
+
+.dark .text-slate\/40 {
+  color: rgba(153, 165, 175, 0.4) !important;
+}
+
+.dark .border-line {
+  border-color: #27323E !important;
+}
+
+.dark .bg-line {
+  background-color: #27323E !important;
+}
+
+/* Desktop nav links — brass underline grows on hover/active */
+.nav-link {
+  position: relative;
+  padding-bottom: 4px;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1.5px;
+  width: 0;
+  background-color: #B08D46;
+  transition: width 0.25s ease;
+}
+.nav-link:hover::after,
+.nav-link.nav-active::after {
+  width: 100%;
+}
+.nav-link.nav-active {
+  color: #B08D46;
+}
+
+/* Mobile nav links */
+.nav-link-mobile:hover,
+.nav-link-mobile.nav-active {
+  color: #B08D46;
+}
+
+/* Footer column headings */
+.footer-heading {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #B08D46;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(176, 141, 70, 0.35);
+  width: fit-content;
+}
+
+.footer-link:hover {
+  color: #B08D46;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #B08D46;
+  outline-offset: 3px;
+}
+
+/* Hero slider dots */
+.slider-dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 9999px;
+  background-color: rgba(246, 244, 239, 0.4);
+  cursor: pointer;
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+.slider-dot.active {
+  width: 22px;
+  border-radius: 9999px;
+  background-color: #B08D46;
+}
+
+/* Service cards lift slightly on hover */
+.service-card {
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Testimonial cards lift slightly on hover */
+.testimonial-card {
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: #B08D46;
+}
+
+/* FAQ accordion */
+.faq-question:hover span:first-child {
+  color: #B08D46;
+}
+.faq-question {
+  cursor: pointer;
+}
+
+/* Property filter tabs */
+.filter-tab {
+  color: #5B6672;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.filter-tab:hover {
+  color: #14212E;
+}
+.filter-tab-active {
+  color: #B08D46;
+  border-bottom-color: #B08D46;
+}
+.dark .filter-tab {
+  color: #99A5AF;
+}
+.dark .filter-tab:hover {
+  color: #EEE9DE;
+}
+
+/* Property photo gallery thumbnails */
+.thumb-btn {
+  cursor: pointer;
+  transition: border-color 0.2s ease, opacity 0.2s ease;
+  opacity: 0.6;
+}
+.thumb-btn:hover {
+  opacity: 1;
+}
+.thumb-btn.active {
+  border-color: #B08D46 !important;
+  opacity: 1;
+}

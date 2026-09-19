@@ -1,0 +1,34 @@
+# Render.com blueprint. Rename "marina-realty" below and update
+# ALLOWED_HOSTS / CSRF_TRUSTED_ORIGINS to match your live URL.
+services:
+  - type: web
+    name: marina-realty
+    runtime: python
+    rootDir: home
+    plan: free
+    buildCommand: "pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn home.wsgi:application"
+    envVars:
+      - key: DJANGO_DEBUG
+        value: "false"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: "marina-realty.onrender.com"
+      - key: CSRF_TRUSTED_ORIGINS
+        value: "https://marina-realty.onrender.com"
+      - key: CONTACT_TO_EMAIL
+        value: "shamrozqureshiabc@gmail.com"
+      # SMTP settings (e.g. Gmail account needs an App Password, not your normal one).
+      - key: EMAIL_BACKEND
+        value: "django.core.mail.backends.smtp.EmailBackend"
+      - key: EMAIL_HOST
+        value: "smtp.gmail.com"
+      - key: EMAIL_PORT
+        value: "587"
+      - key: EMAIL_USE_TLS
+        value: "true"
+      - key: EMAIL_HOST_USER
+        sync: false
+      - key: EMAIL_HOST_PASSWORD
+        sync: false
