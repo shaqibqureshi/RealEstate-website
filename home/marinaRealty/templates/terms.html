@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!-- ============ PAGE INTRO BANNER ============ -->
+    <section class="relative flex h-[45vh] min-h-[360px] w-full items-center justify-center overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1800&q=80" alt="Marina Realty contract" class="absolute inset-0 h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-ink/60"></div>
+      <div class="relative z-10 px-6 text-center">
+        <p class="font-mono text-xs uppercase tracking-[0.3em] text-brass">Legal</p>
+        <h1 class="mt-4 max-w-2xl font-display text-4xl leading-tight text-paper sm:text-5xl">
+          Terms &amp; Conditions
+        </h1>
+        <p class="mx-auto mt-6 max-w-xl text-base text-paper/80 sm:text-lg">
+          The rules that govern your use of our website and services.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ LAST UPDATED ============ -->
+    <section class="border-b border-line">
+      <div class="mx-auto flex max-w-3xl flex-col items-start justify-between gap-2 px-6 py-6 sm:flex-row sm:items-center">
+        <p class="font-mono text-xs uppercase tracking-[0.15em] text-slate">Last Updated</p>
+        <p class="font-mono text-xs text-ink" id="terms-date">1 January 2026</p>
+      </div>
+    </section>
+
+    <!-- ============ TERMS BODY ============ -->
+    <section class="mx-auto max-w-3xl px-6 py-16">
+      <p class="leading-relaxed text-slate">
+        These Terms &amp; Conditions ("Terms") govern your use of the Marina Realty website and the services we offer.
+        By accessing the website or engaging our services, you agree to be bound by these Terms.
+      </p>
+
+      <div class="mt-12 space-y-12">
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">1. About Our Services</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            Marina Realty is a real estate agency based in Malad East, Mumbai. We assist clients in buying, selling,
+            and renting residential and commercial properties. Our website provides a general overview of services
+            and listings; it is not a substitute for professional advice or a binding offer of sale.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">2. Accuracy of Information</h2>
+          <div class="mt-4 space-y-4 text-sm leading-relaxed text-slate">
+            <p>While we make every effort to keep listings and information on this website accurate and up to date,
+            properties are described by their owners and may change without notice.</p>
+            <p>Information on this website is provided "as is" and "as available" without warranties of any kind, either
+            express or implied. You are encouraged to verify all details — including title, measurements, pricing, and
+            legal status — directly with us and with your own legal or financial advisors before making any decision.</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">3. Use of the Website</h2>
+          <div class="mt-4 space-y-4 text-sm leading-relaxed text-slate">
+            <p>You agree to use this website only for lawful purposes. You must not:</p>
+            <ul class="ml-4 list-disc space-y-2 text-slate">
+              <li>Submit false, misleading, or automated enquiries;</li>
+              <li>Attempt to gain unauthorised access to the website, its servers, or connected systems;</li>
+              <li>Scrape, copy, or redistribute content from this website for commercial purposes without our written consent;</li>
+              <li>Use the website in any way that could damage, disable, or impair its operation.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">4. Enquiries &amp; Appointments</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            When you submit an enquiry through our contact form, we will confirm your request and get back to you.
+            Appointment times shown or agreed are provisional until confirmed by our office. We are not liable for
+            delays or changes to scheduled visits caused by market conditions, owner availability, or other factors
+            beyond our control.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">5. Fees &amp; Payments</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            Our service fees, where applicable, are agreed with you in writing before any transaction proceeds. No
+            payment is due merely by using this website or submitting an enquiry. All fees are in Indian Rupees (INR)
+            unless stated otherwise.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">6. Intellectual Property</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            All content on this website — including text, graphics, logos, and images — is the property of Marina
+            Realty or its licensors and is protected by applicable intellectual property laws. You may not reproduce,
+            distribute, or create derivative works from it without our prior written permission.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">7. Limitation of Liability</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            To the fullest extent permitted by law, Marina Realty and its agents shall not be liable for any indirect,
+            incidental, or consequential damages arising from your use of this website or reliance on its content. Your
+            sole remedy for dissatisfaction with the website is to stop using it.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">8. Third-Party Links</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            The website may contain links to external websites (such as maps, social media, or payment services). We do
+            not control these sites and are not responsible for their content or privacy practices. Following such links
+            is at your own risk.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">9. Changes to These Terms</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            We may revise these Terms at any time by updating this page. Changes take effect when posted. Continued use
+            of the website after changes are posted constitutes acceptance of the revised Terms.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">10. Governing Law</h2>
+          <p class="mt-4 text-sm leading-relaxed text-slate">
+            These Terms are governed by and construed in accordance with the laws of India. Any disputes arising from
+            these Terms or your use of the website shall be subject to the exclusive jurisdiction of the courts of
+            Mumbai, Maharashtra.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-2xl text-ink">11. Contact Us</h2>
+          <div class="mt-4 space-y-3 text-sm leading-relaxed text-slate">
+            <p>If you have any questions about these Terms, please contact us:</p>
+            <p class="pt-2 text-ink">
+              Marina Realty<br>
+              Opposite Humera Park, First Floor, Pathanwadi, Malad East, Mumbai - 400097
+            </p>
+            <p><a href="tel:+917302178678" class="footer-link font-mono text-ink">+91 73021 78678</a></p>
+            <p><a href="mailto:shamrozqureshiabc@gmail.com" class="footer-link font-mono text-ink">shamrozqureshiabc@gmail.com</a></p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    {% endblock %}

@@ -3,9 +3,10 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
+from urllib.parse import urlencode
 
 from .forms import ContactForm
-from .models import Property
+from .models import ProjectPromo, Property
 
 
 def home(request):
@@ -31,9 +32,15 @@ def property_list(request):
     paginator = Paginator(properties_qs, 9)  # 9 per page = clean 3x3 grid
     properties = paginator.get_page(request.GET.get('page'))
 
+    # Promotional project slides shown above the listings (managed in the admin).
+    promo_projects = ProjectPromo.objects.filter(is_published=True)
+
     # 'properties' is a Page object here, so properties.has_next,
     # properties.number, etc. all work directly in the template.
-    return render(request, 'properties.html', {'properties': properties})
+    return render(request, 'properties.html', {
+        'properties': properties,
+        'promo_projects': promo_projects,
+    })
 
 
 def property_detail(request, pk):
@@ -45,11 +52,48 @@ def property_detail(request, pk):
         listing_type=property_obj.listing_type,
     ).exclude(pk=property_obj.pk)[:3]
 
+    og_url = request.build_absolute_uri(property_obj.get_absolute_url())
+
+    description = property_obj.description.strip()
+    if not description:
+        description = (
+            f"{property_obj.title} — {property_obj.location}. "
+            f"{property_obj.bedrooms} bedroom, {property_obj.bathrooms} bathroom, "
+            f"{property_obj.area_sqft} sqft."
+        )
+    if len(description) > 200:
+        description = description[:197].rstrip() + "..."
+    og_image = (
+        request.build_absolute_uri(property_obj.image.url)
+        if property_obj.image
+        else ""
+    )
+
+    share_url = (
+        f"https://wa.me/?"
+        f"{urlencode({'text': f'Check out this property:\n{og_url}'})}"
+    )
+
     context = {
         'property': property_obj,
         'related_properties': related_properties,
+        'share_url': share_url,
+        'og': {
+            'title': property_obj.title,
+            'description': description,
+            'image': og_image,
+            'url': og_url,
+        },
     }
     return render(request, 'property_detail.html', context)
+
+
+def privacy_policy(request):
+    return render(request, "privacy.html", {})
+
+
+def terms_and_conditions(request):
+    return render(request, "terms.html", {})
 
 
 def contact(request):

@@ -19,6 +19,10 @@ services:
         value: "https://marina-realty.onrender.com"
       - key: CONTACT_TO_EMAIL
         value: "shamrozqureshiabc@gmail.com"
+      # Public domain of the live site; sets the base of WhatsApp share links.
+      # Update this if the domain ever changes from the Render default.
+      - key: SITE_URL
+        value: "https://marina-realty.onrender.com"
       # SMTP settings (e.g. Gmail account needs an App Password, not your normal one).
       - key: EMAIL_BACKEND
         value: "django.core.mail.backends.smtp.EmailBackend"

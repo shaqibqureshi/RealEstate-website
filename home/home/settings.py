@@ -181,6 +181,10 @@ DEFAULT_FROM_EMAIL = os.getenv(
 # Where appointment notifications are sent.
 CONTACT_TO_EMAIL = os.getenv('CONTACT_TO_EMAIL', '')
 
+# Public base URL of the site, e.g. https://www.mywebsite.com (no trailing slash).
+# Used to build absolute links for WhatsApp sharing and Open Graph previews.
+SITE_URL = os.getenv('SITE_URL', 'http://127.0.0.1:8000').rstrip('/')
+
 
 # Security hardening
 # These are game-overs for HTTPS/SSL, so they flip on automatically

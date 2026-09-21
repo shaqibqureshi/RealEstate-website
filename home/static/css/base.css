@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ===== Dark mode =====
    The site uses a fixed palette; dark mode flips the light "paper" surfaces
    and secondary text via these overrides. Dark ink sections (footer, bands,
@@ -103,6 +107,12 @@ button:focus-visible {
   width: 22px;
   border-radius: 9999px;
   background-color: #B08D46;
+}
+
+/* Featured project promo cards (properties page) — brass top accent makes
+   them stand out from the regular property listing cards below. */
+.promo-card {
+  border-top: 3px solid #B08D46;
 }
 
 /* Service cards lift slightly on hover */

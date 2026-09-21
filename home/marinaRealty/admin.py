@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Property, PropertyImage, ContactMessage
+from .models import Property, PropertyImage, ProjectPromo, ContactMessage
  
  
 class PropertyImageInline(admin.TabularInline):
@@ -36,10 +36,37 @@ class PropertyAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(ProjectPromo)
+class ProjectPromoAdmin(admin.ModelAdmin):
+    list_display = (
+        'project_name', 'builder_name', 'location', 'highlight',
+        'order', 'is_published', 'updated_at',
+    )
+    list_editable = ('order', 'is_published')
+    list_filter = ('location', 'is_published', 'builder_name')
+    search_fields = ('project_name', 'builder_name', 'location', 'highlight')
+    ordering = ('order', 'id')
+
+    fieldsets = (
+        ('Project', {
+            'fields': ('project_name', 'builder_name', 'location')
+        }),
+        ('Advert Copy', {
+            'fields': ('highlight', 'configuration', 'starting_price', 'highlights')
+        }),
+        ('Media & Link', {
+            'fields': ('image', 'link_url')
+        }),
+        ('Visibility', {
+            'fields': ('order', 'is_published')
+        }),
+    )
+
+
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone', 'service', 'preferred_date', 'created_at')
-    list_filter = ('service', 'created_at')
+    list_display = ('name', 'email', 'phone', 'service', 'preferred_date', 'preferred_time', 'created_at')
+    list_filter = ('service', 'preferred_date', 'created_at')
     search_fields = ('name', 'email', 'phone')
     date_hierarchy = 'created_at'
     readonly_fields = ('created_at',)
